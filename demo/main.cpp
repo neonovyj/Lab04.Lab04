@@ -1,7 +1,8 @@
+// Copyright 2020 ivan <ikhonyak@gmail.com>
 #include <analizers.h>
 #include <broker.h>
 
-#include <file(pere).hpp>
+#include <file.hpp>
 #include <iostream>
 
 std::string lastdate(const std::vector<financial_file> &files) {

@@ -1,11 +1,9 @@
-//
-// Created by ivan on 17.01.2021.
-//
+// Copyright 2020 ivan <ikhonyak@gmail.com>
 
 #ifndef TEMPLATE_BROKER_H
 #define TEMPLATE_BROKER_H
 
-#include <file(pere).hpp>
+#include <file.hpp>
 #include <set>  //контейнер, каждый элемент которого уникален
 #include <string>
 #include <vector>

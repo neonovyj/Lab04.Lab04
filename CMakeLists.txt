@@ -34,8 +34,8 @@ find_package(Boost CONFIG REQUIRED filesystem)
 
 add_library(${PROJECT_NAME} STATIC
         # enum your files and delete this comment
-        "${CMAKE_CURRENT_SOURCE_DIR}/sources/file(pere).cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/include/file(pere).hpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/sources/file.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/include/file.hpp"
         include/broker.h sources/broker.cpp include/analizers.h sources/analizers.cpp)
 
 add_executable(demo

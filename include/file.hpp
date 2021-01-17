@@ -1,7 +1,7 @@
-// Copyright 2020 Your Name <your_email>
+// Copyright 2020 ivan <ikhonyak@gmail.com>
 
-#ifndef INCLUDE_HEADER_HPP_
-#define INCLUDE_HEADER_HPP_
+#ifndef INCLUDE_FILE_HPP_
+#define INCLUDE_FILE_HPP_
 #include <string>
 
 class financial_file {  //название класса переименовать!
@@ -20,4 +20,4 @@ class financial_file {  //название класса переименоват
   std::string _account;
 };
 
-#endif  // INCLUDE_HEADER_HPP_
+#endif  // INCLUDE_FILE_HPP_

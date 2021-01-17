@@ -1,6 +1,5 @@
-// Copyright 2020 Your Name <your_email>
-
-#include <file(pere).hpp>
+// Copyright 2020 ivan <ikhonyak@gmail.com>
+#include <file.hpp>
 financial_file::financial_file(const std::string& name, const std::string& date,
                                const std::string& account)
     : _name(name), _date(date), _account(account) {}

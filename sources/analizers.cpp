@@ -1,6 +1,4 @@
-//
-// Created by ivan on 17.01.2021.
-//
+// Copyright 2020 ivan <ikhonyak@gmail.com>
 #include <analizers.h>
 #include <broker.h>
 

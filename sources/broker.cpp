@@ -1,6 +1,4 @@
-//
-// Created by ivan on 17.01.2021.
-//
+// Copyright 2020 ivan <ikhonyak@gmail.com>
 #include <broker.h>
 broker::broker(const std::string& name,
                const std::vector<financial_file>& files,
