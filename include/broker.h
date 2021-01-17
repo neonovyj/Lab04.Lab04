@@ -4,24 +4,26 @@
 
 #ifndef TEMPLATE_BROKER_H
 #define TEMPLATE_BROKER_H
+
 #include <file(pere).hpp>
-#include <map>
 #include <string>
 #include <vector>
-
-typedef std::map<std::string, std::vector<financial_file>> acc_files_map; //название файла из file
+#include <set> //контейнер, каждый элемент которого уникален
 
 class broker {
  public:
   broker() = default;
-  broker(std::string name, acc_files_map files);
+  broker(const std::string &name, const std::vector<financial_file> &files, //название файла поменять
+         const std::set<std::string> &accounts);
 
   std::string name() const;
-  acc_files_map files() const;
-  bool valid() const;
+  std::vector<financial_file> files() const;
+  std::set<std::string> accounts() const;
 
  private:
   std::string _name;
-  acc_files_map _files;
+  std::vector<financial_file> _files;
+  std::set<std::string> _accounts;
 };
+
 #endif  // TEMPLATE_BROKER_H
