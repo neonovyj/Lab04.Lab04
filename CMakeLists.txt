@@ -36,7 +36,7 @@ add_library(${PROJECT_NAME} STATIC
         # enum your files and delete this comment
         "${CMAKE_CURRENT_SOURCE_DIR}/sources/file(pere).cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/include/file(pere).hpp"
-        include/broker.h sources/broker.cpp)
+        include/broker.h sources/broker.cpp include/analizers.h sources/analizers.cpp)
 
 add_executable(demo
         ${CMAKE_CURRENT_SOURCE_DIR}/demo/main.cpp
