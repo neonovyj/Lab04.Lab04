@@ -2,9 +2,10 @@
 // Created by ivan on 17.01.2021.
 //
 #include <analizers.h>
+#include <broker.h>
+
 #include <algorithm>
 #include <boost/filesystem.hpp>
-#include <broker.h>
 #include <string>
 #include <vector>
 
@@ -13,8 +14,12 @@ inline bool not_separator(char c) { return !is_separator(c); }
 std::vector<std::string> split_string(const std::string &text) {
   std::vector<std::string> ret;
   for (auto i = text.cbegin(); i != text.cend();) {
-    i = std::find_if(i, text.end(), not_separator);//ищет символ, не являющийся разделителем. Функция ищет в некотором множестве элемент, при котором выполняется условие
-    auto j = std::find_if(i, text.end(), is_separator); //ищет символ, являеющийся разделителем
+    i = std::find_if(i, text.end(),
+                     not_separator);  //ищет символ, не являющийся разделителем.
+                                      //Функция ищет в некотором множестве
+                                      //элемент, при котором выполняется условие
+    auto j = std::find_if(
+        i, text.end(), is_separator);  //ищет символ, являеющийся разделителем
     ret.push_back(std::string(i, j));
     i = j;
   }
@@ -67,7 +72,8 @@ std::vector<broker> analyse_all(const std::string &path) {
   std::vector<broker> result;
   for (const auto &entry : d_iter{brokers_directory}) {
     broker brok = analyse_one(entry.path().string());
-    result.push_back(brok);
+    if (!brok.files().empty() && !brok.accounts().empty())
+      result.push_back(brok);
   }
   return result;
 }

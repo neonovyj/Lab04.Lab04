@@ -6,14 +6,15 @@
 #define TEMPLATE_BROKER_H
 
 #include <file(pere).hpp>
+#include <set>  //контейнер, каждый элемент которого уникален
 #include <string>
 #include <vector>
-#include <set> //контейнер, каждый элемент которого уникален
 
 class broker {
  public:
   broker() = default;
-  broker(const std::string &name, const std::vector<financial_file> &files, //название файла поменять
+  broker(const std::string &name,
+         const std::vector<financial_file> &files,  //название файла поменять
          const std::set<std::string> &accounts);
 
   std::string name() const;

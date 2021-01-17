@@ -4,7 +4,7 @@
 #define INCLUDE_HEADER_HPP_
 #include <string>
 
-class financial_file {//название класса переименовать!
+class financial_file {  //название класса переименовать!
  public:
   financial_file() = default;
   financial_file(const std::string &name, const std::string &date,
@@ -18,7 +18,6 @@ class financial_file {//название класса переименовать
   std::string _name;
   std::string _date;
   std::string _account;
-
 };
 
-#endif // INCLUDE_HEADER_HPP_
+#endif  // INCLUDE_HEADER_HPP_
