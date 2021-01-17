@@ -30,7 +30,7 @@ void short_print_files(const std::vector<broker> &brokers) {
       }
       std::cout << "broker:" << broker.name() << " account:" << account
                 << " files:" << this_account_files.size()
-                << "lastdate:" << lastdate(this_account_files) << std::endl;
+                << " lastdate:" << lastdate(this_account_files) << std::endl;
     }
   }
 }
