@@ -2,7 +2,7 @@
 
 #ifndef TEMPLATE_ANALIZERS_H
 #define TEMPLATE_ANALIZERS_H
-//gbcjc
+//
 #include <broker.h>
 #include <boost/filesystem.hpp>
 #include <string>

@@ -4,7 +4,7 @@
 
 #include <cash_file.hpp>
 #include <iostream>
-
+//код, который работает с нашей библиотекой. Анализируем директории(перебираем файлы, парсим их названия)
 std::string lastdate(const std::vector<cash_file> &files) {
   std::string res;
   for (const auto &file : files) {
