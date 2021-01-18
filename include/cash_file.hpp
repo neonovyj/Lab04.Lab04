@@ -4,10 +4,10 @@
 #define INCLUDE_FILE_HPP_
 #include <string>
 
-class financial_file {
+class cash_file {
  public:
-  financial_file() = default;
-  financial_file(const std::string &name, const std::string &date,
+  cash_file() = default;
+  cash_file(const std::string &name, const std::string &date,
                  const std::string &account);
 
   std::string name() const;

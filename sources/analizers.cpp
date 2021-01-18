@@ -21,7 +21,7 @@ std::vector<std::string> split_string(const std::string &text) {
 }
 
 void processing_filename(const std::string &filename,
-                         std::vector<financial_file> &files,
+                         std::vector<cash_file> &files,
                          std::set<std::string> &accounts) {
   auto filename_tokens = split_string(filename);
   if (filename_tokens.size() != 3) return;
@@ -34,22 +34,22 @@ void processing_filename(const std::string &filename,
   if (account.length() != 8) return;
   if (date.length() != 8) return;
 
-  files.push_back(financial_file(filename, date, account));
+  files.push_back(cash_file(filename, date, account));
   accounts.insert(account);
 }
 
 broker analyse_one(const std::string &path) {
   std::string name;
-  std::vector<financial_file> files;
+  std::vector<cash_file> files;
   std::set<std::string> accounts;
 
-  const d_path broker_directory{path};
+  const pathB broker_directory{path};
   if (!boost::filesystem::is_directory(broker_directory))
     throw std::runtime_error(
         "argument must be path to broker directory, not file");
 
   name = broker_directory.filename().stem().string();
-  for (const auto &entry : d_iter{broker_directory}) {
+  for (const auto &entry : iteratorB{broker_directory}) {
     if (boost::filesystem::is_directory(entry) ||
         !entry.path().stem().extension().empty() ||
         entry.path().extension().string() != ".txt")
@@ -61,9 +61,9 @@ broker analyse_one(const std::string &path) {
 }
 
 std::vector<broker> analyse_all(const std::string &path) {
-  const d_path brokers_directory{path};
+  const pathB brokers_directory{path};
   std::vector<broker> result;
-  for (const auto &entry : d_iter{brokers_directory}) {
+  for (const auto &entry : iteratorB{brokers_directory}) {
     broker brok = analyse_one(entry.path().string());
     if (!brok.files().empty() && !brok.accounts().empty())
       result.push_back(brok);

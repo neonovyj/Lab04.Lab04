@@ -8,9 +8,9 @@
 #include <string>
 #include <vector>
 
-using d_path = boost::filesystem::path;
-using d_iter = boost::filesystem::directory_iterator;
-using d_entry = boost::filesystem::directory_entry;
+using pathB = boost::filesystem::path;
+using iteratorB = boost::filesystem::directory_iterator;
+using entryB = boost::filesystem::directory_entry;
 broker analyse_one(const std::string &path);
 std::vector<broker> analyse_all(const std::string &path);
 
