@@ -3,7 +3,7 @@
 #ifndef TEMPLATE_BROKER_H
 #define TEMPLATE_BROKER_H
 
-#include <file.hpp>
+#include <cash_file.hpp>
 #include <set>
 #include <string>
 #include <vector>
