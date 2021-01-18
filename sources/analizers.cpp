@@ -12,12 +12,8 @@ inline bool not_separator(char c) { return !is_separator(c); }
 std::vector<std::string> split_string(const std::string &text) {
   std::vector<std::string> ret;
   for (auto i = text.cbegin(); i != text.cend();) {
-    i = std::find_if(i, text.end(),
-                     not_separator);  //ищет символ, не являющийся разделителем.
-                                      //Функция ищет в некотором множестве
-                                      //элемент, при котором выполняется условие
-    auto j = std::find_if(
-        i, text.end(), is_separator);  //ищет символ, являеющийся разделителем
+    i = std::find_if(i, text.end(), not_separator);
+    auto j = std::find_if(i, text.end(), is_separator);
     ret.push_back(std::string(i, j));
     i = j;
   }

@@ -1,7 +1,6 @@
 // Copyright 2020 ivan <ikhonyak@gmail.com>
 #include <analizers.h>
 #include <broker.h>
-
 #include <file.hpp>
 #include <iostream>
 
@@ -42,10 +41,7 @@ int main(int argc, char *argv[]) {
   } else {
     directory = argv[1];
   }
-
-  // todo for test
   directory = "../misc/ftp";
-  // todo endfortest
 
   std::vector<broker> brokers = analyse_all(directory);
   print_files(brokers);

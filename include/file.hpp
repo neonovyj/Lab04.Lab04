@@ -4,7 +4,7 @@
 #define INCLUDE_FILE_HPP_
 #include <string>
 
-class financial_file {  //название класса переименовать!
+class financial_file {
  public:
   financial_file() = default;
   financial_file(const std::string &name, const std::string &date,
