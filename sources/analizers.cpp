@@ -33,27 +33,27 @@ void processing_filename(const std::string &filename,//первым аргуме
   if (type != "balance") return;
   if (account.length() != 8) return;
   if (date.length() != 8) return;
-
-  files.push_back(cash_file(filename, date, account));
-  accounts.insert(account);
+//после проверок, которые выше, мы можем записать новый финансовый файл в filename, который мы уже передали
+  files.push_back(cash_file(filename, date, account));//создаем наш финансовый файл, который мы определили и записываем его в массив файлов, ссылку на кот мы передали
+  accounts.insert(account);//номер аккаунта мы выделили ранее, записываем его в множество аккаунтов, кот мы передали по ссылке
 }
 
-broker analyse_one(const std::string &path) {
-  std::string name;
+broker analyse_one(const std::string &path) {//обрабатывает директории
+  std::string name;//брокер характеризуется тремя параметрами: имя файлы аккаунты
   std::vector<cash_file> files;
   std::set<std::string> accounts;
 
-  const pathB broker_directory{path};
-  if (!boost::filesystem::is_directory(broker_directory))
-    throw std::runtime_error(
+  const pathB broker_directory{path}; //проверяем, является ли брокер директорией. создаем объект пути.
+  if (!boost::filesystem::is_directory(broker_directory)) //is_directory вернет тру, если текущий путь является директорией
+    throw std::runtime_error(//если текущий путь не директория, то возбуждаем исключение
         "argument must be path to broker directory, not file");
-
-  name = broker_directory.filename().stem().string();
-  for (const auto &entry : iteratorB{broker_directory}) {
-    if (boost::filesystem::is_directory(entry) ||
-        !entry.path().stem().extension().empty() ||
-        entry.path().extension().string() != ".txt")
-      continue;
+//итератор - некая обертка над каждым элементом массива, позволяет работать с ним удобнее
+  name = broker_directory.filename().stem().string();//характеризуем брокера по его имени. нам нужно его сохранить. broker_directory- путь filename- имя директории stem- возвращает все, что было до точки string- метод, который преобразует бустовый путь в обычную строку
+  for (const auto &entry : iteratorB{broker_directory}) { //проходим по директориям итератор проходит по файлам. //читаем массив имен файлов в директории и по массиву имен итерируем
+    if (boost::filesystem::is_directory(entry) || //файл должен быть файлом, а не директорией. Или
+        !entry.path().stem().extension().empty() ||//entry - итератор. Получаем путь входной точки, преобразуем ее из итератора во входной путь. потом получаем stem (часть без точки). extension - расширение
+        entry.path().extension().string() != ".txt")//должен иметь разрешение только тхт
+      continue;  // если условие соблюдается, пропускаем файл
     processing_filename(entry.path().filename().stem().string(), files,
                         accounts);
   }
