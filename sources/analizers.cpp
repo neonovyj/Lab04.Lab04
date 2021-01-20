@@ -59,14 +59,14 @@ broker analyse_one(const std::string &path) {
   }
   return broker(name, files, accounts);
 }
-
-std::vector<broker> analyse_all(const std::string &path) {
-  const pathB brokers_directory{path};
-  std::vector<broker> result;
-  for (const auto &entry : iteratorB{brokers_directory}) {
-    broker brok = analyse_one(entry.path().string());
-    if (!brok.files().empty() && !brok.accounts().empty())
-      result.push_back(brok);
+//НИЖЕ Есть массив брокеров, каждую папку мы отдаем analyse one, //анализирует всех, проходит по папкам и каждую папку анализирует как отдельного брокера. проходим по каждой папке и там применяем функцию analyse one/
+std::vector<broker> analyse_all(const std::string &path) { //передается путь в виде строки
+  const pathB brokers_directory{path}; //объект бустовый, позволяющий работать с путем к какому-нибудь файлу как с объектом. Переданную сюда строку мы преобразуем в boost::filesystem::path. В качестве параметра конструктора мы передаем путь (path). теперь brokers_directory- объект пути к папке, где хранятся папки остальных брокеров.
+  std::vector<broker> result; //массив брокеров. Вначале пустой
+  for (const auto &entry : iteratorB{brokers_directory}) {//Этим циклом мы проходимся по папкам с брокерами
+    broker brok = analyse_one(entry.path().string()); //анализируем брокера
+    if (!brok.files().empty() && !brok.accounts().empty())//Проверка, чтобы за брокеров не считались папки, в которых ничего нет
+      result.push_back(brok);//сохраняем его в массив, а массив потом возвращаем
   }
   return result;
 }
