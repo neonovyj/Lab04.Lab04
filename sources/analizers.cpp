@@ -29,7 +29,7 @@ void processing_filename(const std::string &filename,//первым аргуме
   auto type = filename_tokens[0];//std string
   auto account = filename_tokens[1];//std string
   auto date = filename_tokens[2];//std string
-
+//проверяем на валидность данные
   if (type != "balance") return;
   if (account.length() != 8) return;
   if (date.length() != 8) return;
