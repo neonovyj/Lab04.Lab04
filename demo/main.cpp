@@ -13,15 +13,15 @@ std::string lastdate(const std::vector<cash_file> &files) { //ищет саму�
   return res;
 }
 
-void print_files(const std::vector<broker> &brokers) { //для каждого брокера в цикле выводим его файлы
+void print_files(const std::vector<broker> &brokers) { //Перебираем брокеров. для каждого брокера в цикле выводим его файлы
   for (auto const &broker : brokers) {
     for (auto const &broker_file : broker.files()) {
       std::cout << broker.name() << " " << broker_file.name() << std::endl;
     }
   }
 }
-
-void short_print_files(const std::vector<broker> &brokers) {
+//ниже вывод который в конце
+void short_print_files(const std::vector<broker> &brokers) {//если у брокера несколько аккаунтов, то повторяем вывод с другим аккаунтом
   for (auto const &broker : brokers) {//перебираем брокеров
     for (auto const &account : broker.accounts()) {//перебираем аккаунты каждого брокера
       std::vector<cash_file> this_account_files;//вектор с файлами
