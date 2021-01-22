@@ -38,7 +38,7 @@ void processing_filename(const std::string &filename,//первым аргуме
   accounts.insert(account);//номер аккаунта мы выделили ранее, записываем его в множество аккаунтов, кот мы передали по ссылке
 }
 
-broker analyse_one(const std::string &path) {//обрабатывает директории
+broker analyse_one(const std::string &path) {//обрабатывает директории.по всей директории обходим каждый файл, формируем контейнеры(43-44) из них создаем брокера и возвращаем его обратно
   std::string name;//брокер характеризуется тремя параметрами: имя файлы аккаунты
   std::vector<cash_file> files;
   std::set<std::string> accounts;
